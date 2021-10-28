@@ -2,9 +2,9 @@ package by.academy.classwork.lesson1;
 
 public class Cat {
 
-    double money;
-    int age;
-    String nickName;
+    private double weight;
+    private int age;
+    private String nickName;
 
     public Cat() {
         super();
@@ -18,9 +18,9 @@ public class Cat {
         super();
         this.age = age;
     }
-    public Cat(double money) {
+    public Cat(double weight) {
         super();
-        this.money = money;
+        this.weight = weight;
     }
 
     public Cat(String nickName, int age) {
@@ -29,11 +29,11 @@ public class Cat {
         this.age = age;
     }
 
-    public Cat(String nickName, int age, double money) {
+    public Cat(String nickName, int age, double weight) {
         super();
         this.nickName = nickName;
         this.age = age;
-        this.money = money;
+        this.weight = weight;
     }
 
     public void setNickName(String nickName) {
@@ -52,12 +52,12 @@ public class Cat {
         return age;
     }
 
-    public void setMoney(double money) {
-        this.money = money;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
-    public double getMoney() {
-        return money;
+    public double getWeight() {
+        return weight;
     }
 
     public void voice(){
@@ -72,14 +72,14 @@ public class Cat {
         System.out.println("Кот ест.");
     }
 
-    public void walk() {
+    public  void walk() {
         System.out.println("Кот гуляет.");
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Cat{");
-        sb.append("money=").append(money);
+        sb.append("weight=").append(weight);
         sb.append(", age=").append(age);
         sb.append(", nickName='").append(nickName).append('\'');
         sb.append('}');
