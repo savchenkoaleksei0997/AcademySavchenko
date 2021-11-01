@@ -2,7 +2,7 @@ package by.academy.homework.homework1;
 
 import java.util.Scanner;
 
-public class Exercise3 {
+public class Task3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
@@ -12,5 +12,6 @@ public class Exercise3 {
             sum = number * j;
             System.out.println(sum);
         }
+        scanner.close();
     }
 }

@@ -7,7 +7,7 @@ public class SwitchDay {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите номер дня недели:");
+        System.out.print("Введите номер дня недели:");
         int dayNumber = scanner.nextInt();
         switch (dayNumber) {
             case 1:
