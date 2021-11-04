@@ -1,4 +1,4 @@
-package by.academy.classwork.task;
+package by.academy.additionalTasks.cicles;
 
 import java.util.Scanner;
 

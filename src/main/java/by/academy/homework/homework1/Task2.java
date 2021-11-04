@@ -9,6 +9,7 @@ public class Task2 {
         Scanner scanner = new Scanner(System.in);
         String variable;
 
+        System.out.println("Старт программы.");
         System.out.print("Введите тип переменной:");
         variable = scanner.nextLine();
 
@@ -21,7 +22,7 @@ public class Task2 {
                     int resultInt = numberInt % 2;
                     System.out.println(resultInt);
                 } else
-                    System.out.println("Вы ввели неверные данные не типа int, перезапустите программу!");
+                    System.out.println("Вы ввели  данные не типа int, перезапустите программу!");
                 break;
 
             case "double":
@@ -31,7 +32,7 @@ public class Task2 {
                     double resultDoble = numberDouble * 0.7;
                     System.out.println(resultDoble);
                 } else
-                    System.out.println("Вы ввели неверные данные не типа double, перезапустите программу!");
+                    System.out.println("Вы ввели  данные не типа double, перезапустите программу!");
                 break;
 
             case "float":
@@ -41,7 +42,7 @@ public class Task2 {
                     float resultFloat = numberFloat * 2;
                     System.out.println(resultFloat);
                 } else
-                    System.out.println("Вы ввели неверные данные не типа float, перезапустите программу!");
+                    System.out.println("Вы ввели  данные не типа float, перезапустите программу!");
                 break;
 
             case "char":
@@ -61,6 +62,6 @@ public class Task2 {
                 System.out.println("Unsupported type.");
 
         }
-
     }
 }
+

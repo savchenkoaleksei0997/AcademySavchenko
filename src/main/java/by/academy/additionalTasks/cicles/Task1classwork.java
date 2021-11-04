@@ -1,4 +1,4 @@
-package by.academy.classwork.task;
+package by.academy.additionalTasks.cicles;
 
 public class Task1classwork {
     public static void main(String[] args) {
