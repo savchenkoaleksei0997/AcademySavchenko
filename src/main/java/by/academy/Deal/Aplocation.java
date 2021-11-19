@@ -17,7 +17,4 @@ public class Aplocation {
         Deal deal = new Deal(seller, buyer, products);
 
     }
-
-
-
 }
