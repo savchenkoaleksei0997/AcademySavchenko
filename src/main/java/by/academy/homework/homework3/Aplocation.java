@@ -9,6 +9,7 @@ public class Aplocation {
 
         BelarusianBumberValidator numberPhone = new BelarusianBumberValidator();
         EmailValidator emailBuyer = new EmailValidator();
+        DataValidator buyerDataOfBirth = new DataValidator();
 
         User buyer = new User( );
         User seller = new User("Продовец", 1000000);
@@ -54,11 +55,23 @@ public class Aplocation {
                 String buyerEmail = scanner.next();
                 if (emailBuyer.isValid(buyerEmail) == true) {
                     buyer.setEmail(buyerEmail);
-                    break;
                 }else {
                     System.err.println("Вы ввели некоректный email, введите еще раз.");
                 }
             }
+
+            if (buyer.getDateOfBirth() == null){
+                System.out.println("Введите дату вашего рождения (dd/MM/yyyy , dd-MM-yyyy): ");
+                String dateOfBirth = scanner.next();
+                if (buyerDataOfBirth.isValid(dateOfBirth)) {
+                    buyer.setDateOfBirth(dateOfBirth);
+                    break;
+                }else {
+                    System.err.println("Вы ввели дату неправильно, введите еще раз.");
+                }
+
+            }
+
         }while (true);
 
         System.out.println("---------------------------------------------");

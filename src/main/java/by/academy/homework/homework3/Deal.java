@@ -23,7 +23,7 @@ public class Deal {
 
     public void printBuyerInfo(User buyer){
         System.out.println("Имя : " + buyer.getName() + "\nНомер телефона : " + buyer.getPhone() +
-                "\nЭлектронная почта : " + buyer.getEmail());
+                "\nЭлектронная почта : " + buyer.getEmail() + "\nДата рождения : " + buyer.getDateOfBirth());
     }
 
 

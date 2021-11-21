@@ -5,6 +5,7 @@ public class User {
     private String name;
     private String phone;
     private String email;
+    private String dateOfBirth;
 
     public User() {
         super();
@@ -13,6 +14,11 @@ public class User {
     public User(String name) {
         super();
         this.name = name;
+    }
+
+    public User(double money) {
+        super();
+        this.money = money;
     }
 
     public User(String name, double money) {
@@ -28,10 +34,7 @@ public class User {
         this.phone = phone;
     }
 
-    public User(double money) {
-        super();
-        this.money = money;
-    }
+
 
     public User(String name, double money, String phone, String email) {
         super();
@@ -39,6 +42,23 @@ public class User {
         this.name = name;
         this.phone = phone;
         this.email = email;
+    }
+
+    public User(String name, double money, String phone, String email, String dateOfBirth) {
+        super();
+        this.money = money;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getPhone() {
