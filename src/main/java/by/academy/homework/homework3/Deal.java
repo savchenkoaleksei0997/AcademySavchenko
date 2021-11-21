@@ -21,6 +21,11 @@ public class Deal {
         this.basket = basket;
     }
 
+    public void printBuyerInfo(User buyer){
+        System.out.println("Имя : " + buyer.getName() + "\nНомер телефона : " + buyer.getPhone() +
+                "\nЭлектронная почта : " + buyer.getEmail());
+    }
+
 
     public void deposition(double money) {
         buyer.setMoney(money);

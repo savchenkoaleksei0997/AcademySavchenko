@@ -21,6 +21,13 @@ public class User {
         this.name = name;
     }
 
+    public User(String name, double money, String phone) {
+        super();
+        this.money = money;
+        this.name = name;
+        this.phone = phone;
+    }
+
     public User(double money) {
         super();
         this.money = money;
@@ -64,5 +71,16 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("money=").append(money);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", phone='").append(phone).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
