@@ -21,11 +21,10 @@ public class Deal {
         this.basket = basket;
     }
 
-    public void printBuyerInfo(User buyer){
+    public void printBuyerInfo(User buyer) {
         System.out.println("Имя : " + buyer.getName() + "\nНомер телефона : " + buyer.getPhone() +
                 "\nЭлектронная почта : " + buyer.getEmail() + "\nДата рождения : " + buyer.getDateOfBirth());
     }
-
 
     public void deposition(double money) {
         buyer.setMoney(money);
@@ -87,6 +86,7 @@ public class Deal {
         System.arraycopy(basket, 0, newProduct, 0, basket.length);
         basket = newProduct;
     }
+
 
     public User getBuyer() {
         return buyer;

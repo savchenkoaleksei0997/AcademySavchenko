@@ -1,6 +1,8 @@
 package by.academy.homework.homework3;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     protected String name;
     protected double capacity;
     protected double price;

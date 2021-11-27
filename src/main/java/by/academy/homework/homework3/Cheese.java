@@ -2,6 +2,10 @@ package by.academy.homework.homework3;
 
 public class Cheese extends Product {
 
+    public Cheese(){
+        super();
+    }
+
     public Cheese(String name, double capacity, double price, double quantity) {
         super(name, capacity, price, quantity);
     }

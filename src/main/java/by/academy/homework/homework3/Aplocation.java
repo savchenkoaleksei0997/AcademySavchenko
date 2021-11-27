@@ -11,11 +11,11 @@ public class Aplocation {
         EmailValidator emailBuyer = new EmailValidator();
         DataValidator buyerDataOfBirth = new DataValidator();
 
-        User buyer = new User( );
+        User buyer = new User();
         User seller = new User("Продовец", 1000000);
 
         Product[] products = new Product[10];
-        Product[] basket = new Product[20];
+        Product[] basket = new Product[1];
 
         Deal deal = new Deal(seller, buyer, products, basket);
 
@@ -29,7 +29,6 @@ public class Aplocation {
         products[7] = new Cheese("Сыр пряный", 0.5, 4.65, 1);
         products[8] = new Chocolate("Шоколад Milka", 0.1, 2.5, 1);
         products[9] = new Chocolate("Шоколад Nestle", 0.1, 2.96, 1);
-
 
         System.out.println("Добро пожаловать в Магазин, введите личные данные для входа в МЕНЮ.");
         do {
@@ -81,75 +80,80 @@ public class Aplocation {
                     "\n.Для просмотра корзины введите 3." + "\n.Для просмотра личной информации введите 4." +
                     "\n.Для перехода к оплате и печате чека введите 5." +
                     "\n.Для выхода из магазина введите 6.");
-                int caseShop = scanner.nextInt();
-                switch (caseShop) {
-                    case 1:
-                        do {
-                            System.out.println("Для выхода в меню введите 0 !");
-                            System.out.print("Введите ID продукта который хотите преобрести :  ");
-                            int number = scanner.nextInt();
-                            if (number == 0) {
-                                break;
-                            }
-                            if (number < products.length) {
-                                deal.add(products[number - 1]);
-                            } else {
-                                System.err.println("ID продукта отсутвует , выберите еще раз.");
-                            }
-                        } while (true);
+            int caseShop = scanner.nextInt();
+            switch (caseShop) {
+                case 1:
+                    do {
+                        System.out.println("Для выхода в меню введите 0 !");
+                        System.out.print("Введите ID продукта который хотите преобрести :  ");
+                        int number = scanner.nextInt();
+                        if (number == 0) {
+                            break;
+                        }
+                        if (number < products.length) {
+                            Product p = products[number - 1];
+                            System.out.println("Введите количество продукта которое хотите преобрести : ");
+                            int quantityProduct = scanner.nextInt();
+                            p.setQuantity(quantityProduct);
+                            deal.add(p);
+                        } else {
+                            System.err.println("ID продукта отсутвует , выберите еще раз.");
+                        }
+                    } while (true);
 
-                    case 2:
-                        deal.listProduct();
-                        break;
+                case 2:
+                    deal.listProduct();
+                    break;
 
-                    case 3:
-                        do {
-                            System.out.println("..........КОРЗИНА..........");
+                case 3:
+                    do {
+                        System.out.println("..........КОРЗИНА..........");
+                        deal.basketPrint();
+                        System.out.println("Общая сумма покупок.........." + deal.getFullPrice());
+                        System.out.println("Для выхода в мню введите 0.");
+                        System.out.print("Для удаление продукта укажите его ID : ");
+                        int deleteNumber = scanner.nextInt();
+                        if (deleteNumber == 0) {
+                            break;
+                        }
+                        if (deleteNumber < basket.length) {
+                            deal.delete(deleteNumber - 1);
+                        } else {
+                            System.err.println("ID продукта отсутвует , выберите еще раз.");
+                        }
+                    } while (true);
+                    break;
+
+                case 4:
+                    deal.printBuyerInfo(buyer);
+                    break;
+
+                case 5:
+                    do {
+                        System.out.println("Суума к оплате.........." + deal.getFullPrice());
+                        System.out.print("Внесите сумму :");
+                        double moneyBuyer = scanner.nextDouble();
+                        deal.deposition(moneyBuyer);
+                        if (deal.calculation() == 0 || deal.calculation() > 0) {
+                            System.out.println("..........ЧЕК..........");
                             deal.basketPrint();
-                            System.out.println("Общая сумма покупок.........." + deal.getFullPrice());
-                            System.out.println("Для выхода в мню введите 0.");
-                            System.out.print("Для удаление продукта укажите его ID .");
-                            int deleteNumber = scanner.nextInt();
-                            if (deleteNumber == 0) {
-                                break;
-                            }
-                            if (deleteNumber < basket.length) {
-                                deal.delete(deleteNumber - 1);
-                            } else {
-                                System.err.println("ID продукта отсутвует , выберите еще раз.");
-                            }
-                        } while (true);
-                        break;
+                            System.out.println("ИТОГ.........." + deal.getFullPrice() + "...Рублей");
+                            System.out.println("Средств внесено....." + moneyBuyer + "...Рублей");
+                            System.out.println("Сдача.........." + deal.calculation() + "...Рублей");
+                            System.out.println("Приходите к нам еще!!!");
+                            return;
+                        } else if (deal.calculation() < 0) {
+                            System.err.println("Средств недостаточно, внесите большую сумму!!!");
+                        }
+                    } while (true);
 
-                    case 4:
-                        deal.printBuyerInfo(buyer);
-                        break;
+                case 6:
+                    System.out.println("Всего хорошего!");
+                    return;
 
-                    case 5:
-                        do {
-                            System.out.println("Суума к оплате.........." + deal.getFullPrice());
-                            System.out.print("Внесите сумму :");
-                            double moneyBuyer = scanner.nextDouble();
-                            deal.deposition(moneyBuyer);
-                            if (deal.calculation() == 0 || deal.calculation() > 0) {
-                                System.out.println("..........ЧЕК..........");
-                                deal.basketPrint();
-                                System.out.println("ИТОГ.........." + deal.getFullPrice() + "...Рублей");
-                                System.out.println("Средств внесено....." + moneyBuyer + "...Рублей");
-                                System.out.println("Сдача.........." + deal.calculation() + "...Рублей");
-                                System.out.println("Приходите к нам еще!!!");
-                                return;
-                            } else if (deal.calculation() < 0) {
-                                System.err.println("Средств недостаточно, внесите большую сумму!!!");
-                            }
-                        } while (true);
-
-                    case 6:
-                        return;
-
-                    default:
-                        System.err.println("Введенные номер отсутствует, выберите еще раз.");
-                }
+                default:
+                    System.err.println("Введенные номер отсутствует, выберите еще раз.");
+            }
         } while (true);
     }
 }
