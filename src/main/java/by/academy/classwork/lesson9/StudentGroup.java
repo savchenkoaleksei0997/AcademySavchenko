@@ -52,7 +52,6 @@ public class StudentGroup {
         System.arraycopy(students, index, students, index + 1, (size - index));
         students[index] = student;
         size++;
-//        students[size++] = student;
     }
 
     private void grow(){
