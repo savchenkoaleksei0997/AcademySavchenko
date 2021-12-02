@@ -56,6 +56,8 @@ public class Date {
 
     public static class Year {
         int year;
+        LocalDate dateLocal;
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
         public Year() {
             super();
@@ -64,6 +66,15 @@ public class Date {
         public Year(int year) {
             super();
             this.year = year;
+        }
+
+        public void yearLip(String date){
+            dateLocal = LocalDate.parse(date, dateTimeFormatter);
+            if (dateLocal.isLeapYear() == true) {
+                System.out.println("Год высокосный!");
+            } else {
+                System.out.println("Год не высокосный!");
+            }
         }
 
         public int getYear() {

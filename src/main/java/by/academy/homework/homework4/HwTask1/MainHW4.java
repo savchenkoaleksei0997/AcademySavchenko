@@ -16,6 +16,7 @@ public class MainHW4 {
         date.printDayOfWeek(dateText);
         date.setFullData(dateText);
         date.CountsOfDay(dateText);
+        date.year.yearLip(dateText);
 
     }
 }
