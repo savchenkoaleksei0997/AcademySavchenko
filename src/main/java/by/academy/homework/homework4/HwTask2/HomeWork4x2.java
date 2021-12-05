@@ -1,5 +1,6 @@
 package by.academy.homework.homework4.HwTask2;
 
+
 import java.util.Arrays;
 
 public class HomeWork4x2<T> {
@@ -25,8 +26,8 @@ public class HomeWork4x2<T> {
     }
 
     public void add(T object) {
-        if (size + 1 == arrT.length) {
-            Arrays.copyOf(arrT, (arrT.length * 2 + 1));
+        if (size + 1 >= arrT.length) {
+            arrT = Arrays.copyOf(arrT, (arrT.length * 2 + 1));
         }
         arrT[size++] = object;
     }
@@ -43,23 +44,30 @@ public class HomeWork4x2<T> {
         return arrT[0];
     }
 
-    public void printArray(){
+    public void printArray() {
         System.out.println("Массив размеров : " + arrT.length);
     }
 
-    public void printLastIndextObject(){
+    public void printLastIndextObject() {
         int index = 0;
-        for (int i = 0; i < arrT.length; i++){
-            if (arrT[i] != null){
+        for (int i = 0; i < arrT.length; i++) {
+            if (arrT[i] != null) {
                 index = i;
             }
         }
         System.out.println("Индекс последнего заполненного элемента - " + index);
     }
 
-    public void removeOfIndex(int index){
+    public void removeOfIndex(int index) {
         arrT[index] = null;
     }
 
+    public void removeOfObject(T object) {
+        for (int i = 0; i < arrT.length; i++) {
+            if (arrT[i].equals(object)) {
+                arrT[i] = null;
+            }
+        }
+    }
 }
 
