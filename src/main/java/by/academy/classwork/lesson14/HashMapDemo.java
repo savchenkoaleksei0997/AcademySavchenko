@@ -1,6 +1,8 @@
 package by.academy.classwork.lesson14;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class HashMapDemo {
@@ -49,6 +51,8 @@ public class HashMapDemo {
         for (Map.Entry<String, Toy> entry : map.entrySet()) {
             System.out.println(entry);
         }
+
+        List a = new ArrayList<Double>();
 
 
     }
